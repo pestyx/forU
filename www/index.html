@@ -17,27 +17,191 @@
     specific language governing permissions and limitations
     under the License.
 -->
+
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+        <link rel="stylesheet" type="text/css" href="css/photoswipe.css" />
+        <!-- <link rel="stylesheet" href="js/jquery.mobile-1.4.1/jquery.mobile-1.4.1.min.css" /> -->
+         <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.0a4.1/jquery.mobile-1.0a4.1.min.css" /> -->
+        
+        <style type="text/css">
+            div.gallery-row:after { clear: both; content: "."; display: block; height: 0; visibility: hidden; }
+            div.gallery-item { float: left; width: 33.333333%; }
+            div.gallery-item a { display: block; margin: 5px; border: 1px solid #3c3c3c; }
+            div.gallery-item img { display: block; width: 100%; height: auto; }
+            #Gallery1 .ui-content, #Gallery2 .ui-content, #Gallery3 .ui-content  { overflow: hidden; }
+	   </style>
+        
+        
+        <!-- <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+	    <script type="text/javascript" src="js/jquery.mobile-1.4.1/jquery.mobile-1.4.1.min.js"></script> -->
+        <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+	
+        
+	   <script type="text/javascript" src="js/simple-inheritance.min.js"></script>
+	   <script type="text/javascript" src="js/jquery.animate-enhanced.min.js"></script>
+	
+	   <script type="text/javascript" src="js/code-photoswipe-jQuery-1.0.11.min.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <!-- <script type="text/javascript" src="js/code-photoswipe-jQuery-1.0.11.min.js"></script> -->
+        
+        <title>App forU</title>
+        
+        <script type="text/javascript">
+            /*
+			This example shows how to set up PhotoSwipe using jQuery Mobile.
+            */
+                             
+            $(document).ready(function(){
+			
+                $('div.gallery-page').live('pageshow', function(e){
+                    // Re-initialize with the photos for the current page
+				    $("div.gallery a", e.target).photoSwipe();
+				    return true;
+                })
+				
+            });
+         
+            
+	   </script>
+        
     </head>
     <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        
+ 
+        
+        <!--  Splash screen -->
+        <div data-role="page" id="init">
+            
+            <!-- <div data-role="header">
+                
+            </div>-->
+            <a href="#Home" style="text-decoration:none; color: #000;">
+                <div data-role="content" id="ttt" onclick="location.href=#Home;" style="cursor:pointer;">
+                    <p style="font-size: 3em; text-align: center" >forU</p>
+                    <img src="images/full/a1.jpg" alt="init" style="width  : 100%; height : auto;">
+                </div>
+            </a>
+            <!-- <div data-role="footer">
+                
+            </div>-->
+        </div> 
+        
+        
+        <!--  Home page -->
+        <div data-role="page" id="Home">
+            
+            <div data-role="header">
+                <h1>Shared Moments</h1>
+            </div>
+	
+            <div data-role="content" >	
+                <h1 style="text-align: center;">Photos of us...</h1>		
+		
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="#Gallery1">Thailand 2012</a></li> 
+                    <li><a href="#Gallery2">Casamento Monica 2013</a></li>
+                    <li><a href="#Gallery3">Ferias 2013</a></li>
+                </ul> 
+            </div>
+
+            <div data-role="footer">
+                <h4>&copy; 2014 </h4>
             </div>
         </div>
+
+
+        <!-- Gallery 1 -->    
+        <div data-role="page" id="Gallery1" class="gallery-page">
+            
+            <div data-role="header">
+                <h1>Thailand 2012</h1>
+            </div>
+
+            <div data-role="content">	
+
+                <div class="gallery">
+                    <div class="gallery-row">
+                        <div class="gallery-item"><a href="images/full/b1.jpg" rel="external"><img src="images/thumb/b1.jpg" alt="Image 001" /></a></div>
+                        <div class="gallery-item"><a href="images/full/b2.jpg" rel="external"><img src="images/thumb/b2.jpg" alt="Image 002" /></a></div>
+                        <div class="gallery-item"><a href="images/full/b3.jpg" rel="external"><img src="images/thumb/b3.jpg" alt="Image 003" /></a></div>
+                    </div>
+
+                    <div class="gallery-row">
+                        <div class="gallery-item"><a href="images/full/b4.jpg" rel="external"><img src="images/thumb/b4.jpg" alt="Image 004" /></a></div>
+                        <div class="gallery-item"><a href="images/full/b5.jpg" rel="external"><img src="images/thumb/b5.jpg" alt="Image 005" /></a></div>
+                        <div class="gallery-item"></div>
+                    </div>
+
+                
+                </div>
+            </div>
+
+            <div data-role="footer">
+                <h4>&copy; 2014</h4>
+            </div>
+        </div>
+
+            
+        <!-- Gallery 2 -->      
+        <div data-role="page" id="Gallery2" class="gallery-page">
+
+            <div data-role="header">
+                <h1>Casamento Monica 2013</h1>
+            </div>
+
+            <div data-role="content">	
+
+                <div class="gallery">
+                    <div class="gallery-row">
+                        <div class="gallery-item"><a href="images/full/c1.jpg" rel="external"><img src="images/thumb/c1.jpg" alt="Image 001" /></a></div>
+                        <div class="gallery-item"><a href="images/full/c2.jpg" rel="external"><img src="images/thumb/c2.jpg" alt="Image 002" /></a></div>
+                        <div class="gallery-item"><a href="images/full/c3.jpg" rel="external"><img src="images/thumb/c3.jpg" alt="Image 003" /></a></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div data-role="footer">
+                <h4>&copy; 2014</h4>
+            </div>
+        </div>
+        
+            
+            
+        <!-- Gallery 3 -->          
+        <div data-role="page" id="Gallery3" class="gallery-page">
+
+            <div data-role="header">
+                <h1>Ferias 2013</h1>
+            </div>
+
+            <div data-role="content">	
+
+                <div class="gallery">
+                    <div class="gallery-row">
+                        <div class="gallery-item"><a href="images/full/d1.jpg" rel="external"><img src="images/thumb/d1.jpg" alt="Image 001" /></a></div>
+                        <div class="gallery-item"><a href="images/full/d2.jpg" rel="external"><img src="images/thumb/d2.jpg" alt="Image 002" /></a></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div data-role="footer">
+                <h4>&copy; 2014</h4>
+            </div>
+        </div>    
+            
+        <!--
         <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+        <script type="text/javascript" src="js/code-photoswipe-jQuery-1.0.11.min.js"></script>
+        -->
+        
     </body>
 </html>
